@@ -150,7 +150,7 @@ These scripts add:
 - QAOA depth/shot/optimizer sensitivity;
 - optional IBM/IQM smoke-test hooks.
 
-### Honest hybrid validation (`26_aqua_sla_honest_hybrid_quantum_ablation.py`)
+### Hybrid validation (`26_aqua_sla_honest_hybrid_quantum_ablation.py`)
 
 **Improvement:** adds repeated nested stratified cross-validation, inner-fold model/threshold selection, out-of-fold predictions, transparent classical-only/quantum-only/hybrid comparisons, and preservation of the original locked result.
 
@@ -176,7 +176,165 @@ Script 28 is considered the **final release orchestrator**, not a new prediction
 Thus, the scientific model culminates in Scripts 14, 21, 26, and 27, while Script 28 makes the full study reproducible and auditable.
 
 ---
+# Dataset Used in AQUA-SLA
 
+## Google Cluster Workload Traces 2019
+
+AQUA-SLA uses a sample derived from the **Google Cluster Workload Traces 2019** dataset as the empirical workload source for SLA-risk prediction, resource-aware scheduling, hybrid quantum-classical experimentation, and iQuantum-based quantum-cloud simulation.
+
+This file documents the dataset provenance, scope, acquisition procedure, intended use, limitations, licensing, and reproducibility requirements for this repository.
+
+---
+
+## 1. Dataset identity
+
+| Field | Description |
+|---|---|
+| Dataset name | Google Cluster Workload Traces 2019 |
+| Trace version | Version 3, commonly called `ClusterData2019` |
+| Original provider | Google Research |
+| Workload manager | Google Borg |
+| Observation period | May 2019 |
+| Number of production clusters/cells | Eight Borg cells |
+| Repository source used by AQUA-SLA | Kaggle sample/mirror |
+| Full-trace access | Google BigQuery |
+| Domain | Cloud computing, cluster scheduling, resource management, workload characterization |
+
+### Primary sources
+
+- Official Google trace documentation:  
+  https://github.com/google/cluster-data/blob/master/ClusterData2019.md
+
+- Official Google Research announcement:  
+  https://research.google/blog/yet-more-google-compute-cluster-trace-data/
+
+- Kaggle sample used for local experimentation:  
+  https://www.kaggle.com/datasets/derrickmwiti/google-2019-cluster-sample
+
+- Google Research paper describing and analyzing the 2019 Borg trace:  
+  https://research.google/pubs/borg-the-next-generation/
+
+- DOI for the accompanying EuroSys 2020 paper:  
+  https://doi.org/10.1145/3342195.3387517
+
+- Additional archive link referenced on the Kaggle dataset page:  
+  https://drive.google.com/file/d/10r6cnJ5cJ89fPWCgj7j4LtLBqYN9RiI9/view
+
+---
+
+## 2. Dataset description
+
+The 2019 trace records production workloads running on eight Google Borg compute clusters during May 2019. It describes workload activity at several levels, including job submissions, scheduling behavior, task execution, and resource requests and usage.
+
+Compared with the earlier 2011 Google cluster trace, the 2019 release adds important workload information, including:
+
+- CPU-usage histograms for each five-minute period rather than only point samples;
+- alloc-set information for shared resource reservations;
+- parent-child job relationships for master/worker workload structures, including MapReduce-style jobs;
+- broader coverage across eight production Borg cells.
+
+The official trace is large—approximately 2.4 TiB in compressed form—and Google distributes the complete trace through BigQuery. AQUA-SLA therefore uses a smaller Kaggle-hosted sample for local model development, ablation experiments, and reproducible execution on standard research workstations.
+
+---
+
+## 3. What the trace contains
+
+The trace is intended for research on cloud infrastructure and scheduling. Depending on the selected table or sample, relevant information may include:
+
+- jobs and tasks;
+- submission and scheduling events;
+- task states and transitions;
+- resource requests;
+- CPU, memory, and other resource-usage measurements;
+- machine or cell-level placement information;
+- task priority and scheduling class;
+- collection and alloc-set relationships;
+- job-parent relationships;
+- time-dependent resource behavior.
+
+The exact columns available in this repository depend on the Kaggle sample files downloaded by the researcher. The repository must not claim that every field from the full BigQuery trace is present in the local sample.
+
+---
+
+## 4. What the trace does not contain
+
+The trace focuses on infrastructure-level requests, scheduling, and resource usage. According to the official documentation, it does not contain:
+
+- end-user identities;
+- user application data;
+- storage contents;
+- user access patterns to storage systems or services.
+
+The dataset is nevertheless derived from a real production environment and should be handled according to its stated license and research-use conditions.
+
+---
+
+## 5. Role of the dataset in AQUA-SLA
+
+The Google trace is the **classical workload dataset** used to construct and evaluate the AQUA-SLA pipeline.
+
+It is not a quantum-computing dataset. Quantum methods are applied later in the workflow to derived scheduling or optimization representations.
+
+The intended data flow is:
+
+```text
+Google 2019 Borg trace sample
+        |
+        v
+Data cleaning and schema normalization
+        |
+        v
+Feature engineering and temporal ordering
+        |
+        v
+Project-defined SLA-violation target
+        |
+        v
+Leakage-aware train/validation/test evaluation
+        |
+        v
+Calibrated SLA-risk probabilities
+        |
+        v
+Risk-aware resource scheduling
+        |
+        +---------------------------+
+        |                           |
+        v                           v
+Qiskit/QAOA experiments      iQuantum simulation
+        |                           |
+        +-------------+-------------+
+                      |
+                      v
+       Consolidated AQUA-SLA evaluation
+```
+
+### Important target-label clarification
+
+The raw Google trace does **not** contain a native field called `sla_violation` defined specifically for AQUA-SLA.
+
+Any SLA-violation label, risk class, deadline breach, resource-pressure indicator, or related prediction target used in this repository is a **project-defined derived target**. The exact definition must be documented in the preprocessing code, experiment configuration, paper methodology, and generated metadata.
+
+Researchers reproducing the project should not assume that the label was supplied directly by Google.
+
+---
+
+## 6. Relationship to the iQuantum integration
+
+The Google trace provides the empirical workload characteristics. iQuantum provides a separate discrete-event simulation environment for quantum-cloud resource-management experiments.
+
+In the AQUA-SLA workflow:
+
+1. the Google trace sample is processed by the Python pipeline;
+2. SLA-risk scores and scheduling assignments are generated;
+3. the selected workload is exported to an iQuantum-compatible task representation;
+4. the Java iQuantum simulation evaluates quantum-resource allocation, waiting time, execution time, completion behavior, makespan, and related platform metrics;
+5. iQuantum outputs are imported back into the consolidated AQUA-SLA results package.
+
+Therefore, iQuantum is not a replacement for the Google dataset. It is a downstream simulation platform that consumes workload information derived from the dataset.
+
+iQuantum results must be described as **simulation results**, not measurements from physical quantum hardware.
+____
 
 ## 4. Platform requirements
 
