@@ -177,103 +177,8 @@ Thus, the scientific model culminates in Scripts 14, 21, 26, and 27, while Scrip
 
 ---
 
-## 4. Important repository consistency corrections
 
-The uploaded archive contains `21_aqua_sla_complete_quantum_ablation.py`, but the current Script 28 configuration refers to `25_aqua_sla_complete_quantum_ablation.py`. It also refers to circuit scripts `22` and `24`, which are not present in the uploaded archive.
-
-Before tagging the repository as a final release, edit `28_aqua_sla_master_experiment_runner.py` as follows:
-
-```python
-EXPERIMENTS = [
-    {
-        "name": "classical_core",
-        "script": "14_aqua_sla_combined_final.py",
-        "destination": "01_classical",
-        "output_candidates": [
-            "results/combined/aqua_sla_final",
-        ],
-    },
-    {
-        "name": "sample_size_study",
-        "script": "19_aqua_sla_complete_sample_ablation.py",
-        "destination": "02_sample_size",
-        "output_candidates": [
-            "results/prediction/sample_size_study",
-        ],
-    },
-    {
-        "name": "quantum_ablation",
-        "script": "21_aqua_sla_complete_quantum_ablation.py",
-        "destination": "03_quantum_ablation",
-        "output_candidates": [
-            "results/aqua_sla_final/quantum_ablation_complete",
-        ],
-    },
-    {
-        "name": "honest_hybrid_quantum_ablation",
-        "script": "26_aqua_sla_honest_hybrid_quantum_ablation.py",
-        "destination": "04_honest_hybrid",
-        "output_candidates": [
-            "results/aqua_sla_final/honest_hybrid_quantum_ablation",
-        ],
-    },
-    {
-        "name": "iquantum_platform",
-        "script": "27_aqua_sla_iquantum_platform_integration.py",
-        "destination": "05_iquantum",
-        "output_candidates": [
-            "results/aqua_sla_final/iquantum_platform_integration",
-        ],
-    },
-]
-
-CIRCUIT_SCRIPTS = [
-    "20_save_quantum_circuit_figures.py",
-]
-```
-
-These corrections align the final runner with the files and output paths actually present in this repository.
-
----
-
-## 5. Recommended repository layout
-
-```text
-AQUA-SLA-Hybrid-Quantum-Orchestration/
-├── Code/
-│   ├── 01_inspect_dataset.py
-│   ├── ...
-│   ├── 27_aqua_sla_iquantum_platform_integration.py
-│   └── 28_aqua_sla_master_experiment_runner.py
-├── Dataset/
-│   ├── borg_traces_data.csv                 # normally not committed
-│   └── processed/                           # generated
-├── models/                                  # generated; normally ignored
-├── results/                                 # generated; selected release results only
-├── third_party/
-│   └── iQuantum/                            # cloned dependency
-├── docs/
-│   ├── architecture/
-│   └── experiment_notes/
-├── README.md
-├── requirements.txt
-├── environment.yml
-├── .gitignore
-├── LICENSE
-└── CITATION.cff
-```
-
-### Files that should not normally be published
-
-- API tokens, IBM credentials, IQM tokens, or `.env` files;
-- the complete raw dataset unless redistribution is permitted;
-- large intermediate models and repeated temporary results;
-- local command-history documents containing usernames and machine paths;
-- `command-prompmt.docx` in its current form, because it contains local environment names and personal Windows paths. Move a sanitized version to `docs/` or exclude it.
-
----
-
-## 6. Platform requirements
+## 4. Platform requirements
 
 The current scripts are configured for Windows paths and use:
 
@@ -288,9 +193,9 @@ The official iQuantum project describes itself as a lightweight discrete-event t
 
 ---
 
-## 7. Clone and create the Anaconda environment
+## 4. Clone and create the Anaconda environment
 
-### 7.1 Clone this repository
+### 4.1 Clone this repository
 
 ```bat
 git clone https://github.com/YOUR-USERNAME/AQUA-SLA-Hybrid-Quantum-Orchestration.git D:\other\AQUA-SLA
@@ -305,7 +210,7 @@ PROJECT_DIR = Path(r"D:\other\AQUA-SLA")
 
 Cloning to this location allows the scripts to run without path changes. For a portable public release, refactor `PROJECT_DIR` to use an environment variable or repository-relative path.
 
-### 7.2 Create the environment
+### 4.2 Create the environment
 
 ```bat
 conda create -n aqua-sla python=3.11 -y
@@ -313,19 +218,19 @@ conda activate aqua-sla
 python -m pip install --upgrade pip
 ```
 
-### 7.3 Install the core scientific stack
+### 4.3 Install the core scientific stack
 
 ```bat
 python -m pip install numpy pandas scipy scikit-learn xgboost joblib matplotlib pillow openpyxl tabulate
 ```
 
-### 7.4 Install the Qiskit stack
+### 4.4 Install the Qiskit stack
 
 ```bat
 python -m pip install qiskit qiskit-aer qiskit-machine-learning qiskit-algorithms qiskit-optimization
 ```
 
-### 7.5 Optional hardware-provider packages
+### 4.5 Optional hardware-provider packages
 
 IBM Quantum:
 
@@ -339,13 +244,13 @@ IQM:
 python -m pip install qiskit-iqm
 ```
 
-### 7.6 Verify Python dependencies
+### 4.6 Verify Python dependencies
 
 ```bat
 python -c "import numpy, pandas, scipy, sklearn, qiskit, qiskit_machine_learning; print('Python stack OK')"
 ```
 
-### 7.7 Freeze the tested environment
+### 4.7 Freeze the tested environment
 
 After a successful final run:
 
@@ -358,7 +263,7 @@ Commit these files so reviewers can recreate the exact environment.
 
 ---
 
-## 8. Dataset placement
+## 5. Dataset placement
 
 Place the input file at:
 
@@ -383,7 +288,7 @@ Do not commit the raw dataset unless its license permits redistribution. At mini
 
 ---
 
-## 9. Run order and expected output from every file
+## 6. Run order and expected output from every file
 
 All commands below assume:
 
@@ -837,70 +742,6 @@ Use precise language:
 
 ---
 
-## 15. GitHub publication steps
-
-From the project root:
-
-```bat
-cd /d D:\other\AQUA-SLA
-git init
-git add .
-git commit -m "Initial reproducible release of AQUA-SLA"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/AQUA-SLA-Hybrid-Quantum-Orchestration.git
-git push -u origin main
-```
-
-Recommended first release tag:
-
-```bat
-git tag -a v1.0.0 -m "AQUA-SLA reproducible research release"
-git push origin v1.0.0
-```
-
-Create the tag only after the final-release checklist passes.
-
-### Suggested `.gitignore`
-
-```gitignore
-# Python
-__pycache__/
-*.py[cod]
-.ipynb_checkpoints/
-
-# Conda/virtual environments
-.conda/
-.venv/
-venv/
-
-# Secrets
-.env
-*.token
-*credentials*
-
-# Raw/generated data
-Dataset/*.csv
-Dataset/processed/
-
-# Models and large generated artifacts
-models/
-results/
-*.joblib
-*.qpy
-
-# Java/Maven build
-third_party/iQuantum/**/target/
-
-# IDE/OS
-.vscode/
-.idea/
-Thumbs.db
-.DS_Store
-```
-
-For a reproducible release, selectively force-add small final tables, reports, figures, and manifests rather than committing every intermediate result.
-
----
 
 ## 16. Troubleshooting
 
