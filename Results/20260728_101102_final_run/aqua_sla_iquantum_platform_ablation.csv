@@ -1,0 +1,6 @@
+experiment_layer,method,sla_satisfaction,mean_response_time,makespan,energy,cost,note
+AQUA-SLA_scheduler,classical_risk_greedy,0.72,0.2967927887379774,0.3459584744601903,0.406455501417116,0.6994076633380538,Locked AQUA-SLA scheduling result
+AQUA-SLA_scheduler,hungarian_optimal,0.73,0.2971061654734261,0.3426664995294534,0.4064229096599379,0.6992623409421748,Locked AQUA-SLA scheduling result
+AQUA-SLA_scheduler,qaoa_sla_aware,0.73,0.2971061654734261,0.3426664995294534,0.4064229096599379,0.6992623409421748,Locked AQUA-SLA scheduling result
+AQUA-SLA_scheduler,round_robin,0.72,0.3001705186698733,0.3585526270146472,0.4067900655545899,0.6992155078549176,Locked AQUA-SLA scheduling result
+iQuantum_platform,CLOUDS Lab iQuantum discrete-event simulation,1.0,15.4574,1002.63,,4637.22,Platform simulation metrics; not directly interchangeable with the locked analytical scheduler metrics.

@@ -1,0 +1,2 @@
+platform,executed,tasks_submitted,tasks_completed,success_rate,mean_waiting_time,mean_qpu_time,makespan,total_cost,node_0_tasks,node_1_tasks,status
+iQuantum,True,100,100,1.0,374.6265999999999,15.4574,1002.63,4637.22,50,50,completed
