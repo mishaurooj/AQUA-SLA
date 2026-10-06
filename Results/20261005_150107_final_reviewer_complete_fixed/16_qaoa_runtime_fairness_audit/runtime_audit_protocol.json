@@ -1,0 +1,32 @@
+{
+  "project": "AQUA-SLA",
+  "experiment": "qaoa-runtime-fairness-audit",
+  "created": "2026-10-06T14:41:25.634052",
+  "source_run": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed",
+  "output": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\16_qaoa_runtime_fairness_audit\\20261006_144125",
+  "python": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "blocks": 20,
+  "repeats": 3,
+  "configurations": [
+    {
+      "config": "primary_512s_50iter",
+      "reps": 1,
+      "shots": 512,
+      "maxiter": 50
+    },
+    {
+      "config": "efficient_256s_20iter",
+      "reps": 1,
+      "shots": 256,
+      "maxiter": 20
+    },
+    {
+      "config": "efficient_128s_10iter",
+      "reps": 1,
+      "shots": 128,
+      "maxiter": 10
+    }
+  ],
+  "timing_rule": "One QAOA warm-up solve is excluded. Timed QAOA then runs in the same Python process, removing Windows process-spawn overhead. Solver-only and end-to-end times are both saved."
+}

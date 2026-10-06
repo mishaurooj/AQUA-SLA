@@ -1,0 +1,58 @@
+{
+  "completed": true,
+  "source_run": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed",
+  "output": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\16_qaoa_runtime_fairness_audit\\20261006_144125",
+  "saved_final_qaoa_blocks": 20,
+  "repeats_per_block": 3,
+  "warmup_seconds_excluded": 1.492543900036253,
+  "warmup_success": true,
+  "configurations": [
+    {
+      "config": "primary_512s_50iter",
+      "reps": 1,
+      "shots": 512,
+      "maxiter": 50
+    },
+    {
+      "config": "efficient_256s_20iter",
+      "reps": 1,
+      "shots": 256,
+      "maxiter": 20
+    },
+    {
+      "config": "efficient_128s_10iter",
+      "reps": 1,
+      "shots": 128,
+      "maxiter": 10
+    }
+  ],
+  "best_reliable_configuration": {
+    "config": "efficient_128s_10iter",
+    "blocks": 20,
+    "success_rate": 1.0,
+    "raw_feasibility_rate": 1.0,
+    "optimal_match_rate": 1.0,
+    "mean_objective_gap": 0.0,
+    "mean_qaoa_solver_seconds": 0.46835663499950897,
+    "mean_qaoa_end_to_end_seconds": 0.46874422499677165,
+    "mean_milp_solver_seconds": 0.001177525005186908,
+    "mean_milp_end_to_end_seconds": 0.0014025600015884266,
+    "mean_risk_greedy_seconds": 0.0002963850012747571,
+    "mean_least_loaded_seconds": 0.0002564949885709211,
+    "mean_qaoa_vs_milp_solver_ratio": 397.9191305527339,
+    "bootstrap95_qaoa_vs_milp_solver_ratio_low": 386.37788397813506,
+    "bootstrap95_qaoa_vs_milp_solver_ratio_high": 409.24939398843964,
+    "mean_qaoa_vs_milp_end_to_end_ratio": 334.3420475709843,
+    "bootstrap95_qaoa_vs_milp_end_to_end_ratio_low": 324.78259832593955,
+    "bootstrap95_qaoa_vs_milp_end_to_end_ratio_high": 343.0252534056946
+  },
+  "cold_process_reference": {
+    "successful_runs": 20,
+    "mean_cold_process_wall_seconds": 4.877188944997033,
+    "median_cold_process_wall_seconds": 4.901255200005835
+  },
+  "qaoa_end_to_end_time_advantage_over_milp": false,
+  "conclusion": "No QAOA runtime advantage over MILP was observed under the strict reliability and paired-bootstrap criterion. The final paper should report QAOA as reliable solution recovery for the compact benchmark, not as a runtime or quantum-speedup result.",
+  "decision_rule": "A time advantage is accepted only when a configuration has >=95% success, raw feasibility, and exact MILP-objective match, and the paired block-bootstrap 95% CI for QAOA/MILP end-to-end runtime ratio lies completely below 1.",
+  "scientific_boundary": "All QAOA measurements are simulator/software timings. They do not demonstrate physical quantum computational advantage."
+}
