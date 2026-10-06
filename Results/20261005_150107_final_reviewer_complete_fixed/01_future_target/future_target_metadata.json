@@ -1,0 +1,22 @@
+{
+  "horizon_seconds": 300.0,
+  "decision_time": "time_seconds",
+  "task_keys": [
+    "collection_id",
+    "instance_index"
+  ],
+  "positive_definition": "same-task FAIL/LOST/EVICT/KILL in (Ti,Ti+H] before an earlier clean terminal",
+  "negative_definition": "no disruptive event in horizon and either explicit clean terminal before horizon or observation through Ti+H",
+  "clean_terminal_events": [
+    "FINISH"
+  ],
+  "censoring": "task-level right censoring for insufficient follow-up",
+  "source_rows": 405894,
+  "eligible_rows": 139293,
+  "positives": 3544,
+  "negatives": 135749,
+  "prevalence": 0.02544277171142843,
+  "task_lifecycle_censored_rows": 130432,
+  "known_clean_negative_rows": 4622,
+  "observed_through_horizon_rows": 274248
+}
