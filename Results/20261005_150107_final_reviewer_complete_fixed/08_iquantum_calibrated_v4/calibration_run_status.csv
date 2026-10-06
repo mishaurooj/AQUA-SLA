@@ -1,0 +1,13 @@
+workload_size,queue_scenario,calibration_seed,success,elapsed_seconds
+30,balanced_background,9001,True,3.1289584999904037
+30,balanced_background,9002,True,1.9238479999476112
+30,balanced_background,9003,True,2.312145200034138
+30,asymmetric_background,9001,True,2.376795599993784
+30,asymmetric_background,9002,True,1.919737600022927
+30,asymmetric_background,9003,True,1.8215649999910966
+60,balanced_background,9001,True,2.1142459000111558
+60,balanced_background,9002,True,2.074599399988074
+60,balanced_background,9003,True,1.8530188000295311
+60,asymmetric_background,9001,True,1.7615722000482492
+60,asymmetric_background,9002,True,1.8894218999776058
+60,asymmetric_background,9003,True,1.834459500038065

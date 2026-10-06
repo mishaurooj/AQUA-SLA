@@ -1,0 +1,23 @@
+{
+  "calibration_policy": "neutral projected-completion reference; no SLA risk used",
+  "calibration_seeds": [
+    9001,
+    9002,
+    9003
+  ],
+  "evaluation_seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+  ],
+  "quantile": 0.9,
+  "definition": "For each workload-size and queue-scenario stratum, budget = frozen calibration multiplier × fastest-compatible service estimate. The multiplier is estimated only from separate calibration workloads.",
+  "multipliers": {
+    "n30|asymmetric_background": 32.07620738636364,
+    "n30|balanced_background": 32.46530032467532,
+    "n60|asymmetric_background": 65.81713708715156,
+    "n60|balanced_background": 66.34880023386788
+  }
+}

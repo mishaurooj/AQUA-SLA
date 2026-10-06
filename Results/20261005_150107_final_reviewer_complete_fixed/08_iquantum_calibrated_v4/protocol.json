@@ -1,0 +1,54 @@
+{
+  "project": "AQUA-SLA",
+  "experiment": "iquantum-risk-aware-calibrated-v4",
+  "created": "2026-10-06T14:55:48.462731",
+  "python": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "source_v2_run": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed",
+  "output": "E:\\AQUA_IQ4_TMP\\20261006_145519_iq4",
+  "policies": [
+    "random",
+    "least_loaded",
+    "compatibility_aware",
+    "risk_aware"
+  ],
+  "workload_sizes": [
+    30,
+    60
+  ],
+  "workload_seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+  ],
+  "queue_scenarios": [
+    "balanced_background",
+    "asymmetric_background"
+  ],
+  "expected_simulations": 80,
+  "qnodes": {
+    "0": {
+      "qubits": 7,
+      "qv": 64,
+      "clops": 1800.0
+    },
+    "1": {
+      "qubits": 15,
+      "qv": 128,
+      "clops": 2800.0
+    },
+    "2": {
+      "qubits": 27,
+      "qv": 256,
+      "clops": 4200.0
+    }
+  },
+  "risk_regime": "Risk-stratified stress sample from existing HCQKL probabilities. Low/middle/high empirical strata are sampled and shuffled independently of circuit complexity. This is a stress test, not natural prevalence.",
+  "policy_fairness": "Within each workload-size/seed/queue-scenario cell all policies receive identical foreground circuits, risk values, background tasks and background QNode assignments. Only the foreground placement rule differs.",
+  "external_slo": "Frozen before evaluation from separate calibration workloads. For each workload-size/queue-scenario stratum, the budget equals a predeclared calibration quantile multiplier times the fastest-compatible service estimate. Calibration uses no SLA risk and no evaluation-policy outcome.",
+  "slo_calibration_quantile": 0.9,
+  "slo_calibration_summary_rows": 4,
+  "claim_boundary": "The experiment tests a stronger risk-aware policy under queue stress. It does not guarantee that risk-aware placement wins, and all runs are retained."
+}

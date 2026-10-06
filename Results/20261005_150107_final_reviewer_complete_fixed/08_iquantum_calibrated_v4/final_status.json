@@ -1,0 +1,19 @@
+{
+  "completed": true,
+  "output": "E:\\AQUA_IQ4_TMP\\20261006_145519_iq4",
+  "expected_simulations": 80,
+  "successful_simulations": 80,
+  "failed_simulations": 0,
+  "summary_rows": 80,
+  "uncertainty_rows": 52,
+  "paired_rows": 39,
+  "winner_rows": 260,
+  "notes": [
+    "This is a separate stress-test experiment and does not overwrite reviewer V2 results.",
+    "All matched cells are retained regardless of which policy wins.",
+    "Circuit complexity is generated independently of SLA risk.",
+    "Background queue state is identical across policies within a matched cell.",
+    "The external SLO is calibrated on separate workloads and frozen before evaluation.",
+    "iQuantum is discrete-event simulation, not physical quantum hardware."
+  ]
+}

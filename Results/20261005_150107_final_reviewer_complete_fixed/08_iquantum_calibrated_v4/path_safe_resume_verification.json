@@ -1,0 +1,28 @@
+{
+  "status_path": "E:\\AQUA_IQ4_TMP\\20261006_145519_iq4\\final_status.json",
+  "status": {
+    "completed": true,
+    "output": "E:\\AQUA_IQ4_TMP\\20261006_145519_iq4",
+    "expected_simulations": 80,
+    "successful_simulations": 80,
+    "failed_simulations": 0,
+    "summary_rows": 80,
+    "uncertainty_rows": 52,
+    "paired_rows": 39,
+    "winner_rows": 260,
+    "notes": [
+      "This is a separate stress-test experiment and does not overwrite reviewer V2 results.",
+      "All matched cells are retained regardless of which policy wins.",
+      "Circuit complexity is generated independently of SLA risk.",
+      "Background queue state is identical across policies within a matched cell.",
+      "The external SLO is calibrated on separate workloads and frozen before evaluation.",
+      "iQuantum is discrete-event simulation, not physical quantum hardware."
+    ]
+  },
+  "verified_complete": true,
+  "elapsed_seconds": 191.03911549999611,
+  "staging_root": "E:\\AQUA_IQ4_TMP",
+  "staging_run": "E:\\AQUA_IQ4_TMP\\20261006_145519_iq4",
+  "final_shallow_evidence": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\08_iquantum_calibrated_v4\\final_iq4",
+  "raw_zip": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\08_iquantum_calibrated_v4\\iquantum_v4_complete_raw.zip"
+}
