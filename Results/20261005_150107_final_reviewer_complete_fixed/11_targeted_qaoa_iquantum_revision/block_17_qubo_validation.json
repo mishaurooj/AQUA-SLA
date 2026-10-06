@@ -1,0 +1,76 @@
+{
+  "valid": true,
+  "best_bits": "0110",
+  "best_assignment": "[1, 0]",
+  "best_assignment_objective": 0.8353981120382252,
+  "best_feasible_objective": 0.8353981120382252,
+  "capacity_audit": [
+    {
+      "resource": 0,
+      "subset": "task_0",
+      "violates": false,
+      "cpu_sum": 0.030029296875,
+      "memory_sum": 0.1041259765625,
+      "cpu_capacity": 0.030029296875,
+      "memory_capacity": 0.1041259765625
+    },
+    {
+      "resource": 0,
+      "subset": "task_1",
+      "violates": false,
+      "cpu_sum": 0.0048370361328125,
+      "memory_sum": 0.0021400451660156,
+      "cpu_capacity": 0.030029296875,
+      "memory_capacity": 0.1041259765625
+    },
+    {
+      "resource": 0,
+      "subset": "task_0+task_1",
+      "violates": true,
+      "cpu_sum": 0.0348663330078125,
+      "memory_sum": 0.1062660217285156,
+      "cpu_capacity": 0.030029296875,
+      "memory_capacity": 0.1041259765625
+    },
+    {
+      "resource": 1,
+      "subset": "task_0",
+      "violates": false,
+      "cpu_sum": 0.030029296875,
+      "memory_sum": 0.1041259765625,
+      "cpu_capacity": 0.03647890090942383,
+      "memory_capacity": 0.1041259765625
+    },
+    {
+      "resource": 1,
+      "subset": "task_1",
+      "violates": false,
+      "cpu_sum": 0.0048370361328125,
+      "memory_sum": 0.0021400451660156,
+      "cpu_capacity": 0.03647890090942383,
+      "memory_capacity": 0.1041259765625
+    },
+    {
+      "resource": 1,
+      "subset": "task_0+task_1",
+      "violates": true,
+      "cpu_sum": 0.0348663330078125,
+      "memory_sum": 0.1062660217285156,
+      "cpu_capacity": 0.03647890090942383,
+      "memory_capacity": 0.1041259765625
+    }
+  ],
+  "constant": 56.70796224076451,
+  "linear": {
+    "x_0_0": -27.353981120382254,
+    "x_0_1": -28.109914132217362,
+    "x_1_0": -27.76264999650892,
+    "x_1_1": -28.353981120382254
+  },
+  "quadratic": {
+    "x_0_0|x_0_1": 56.70796224076451,
+    "x_1_0|x_1_1": 56.70796224076451,
+    "x_0_0|x_1_0": 28.353981120382254,
+    "x_0_1|x_1_1": 28.353981120382254
+  }
+}
