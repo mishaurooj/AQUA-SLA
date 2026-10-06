@@ -1,0 +1,26 @@
+{
+  "index": 3,
+  "stem": "03_Quantum_State_Evolution",
+  "description": "Quantum state evolution",
+  "name": "AQUA-SLA evolution",
+  "num_qubits": 6,
+  "num_clbits": 0,
+  "depth": 25,
+  "size": 50,
+  "num_parameters": 0,
+  "parameters": [],
+  "operations": {
+    "cx": 15,
+    "h": 12,
+    "p": 11,
+    "ry": 6,
+    "rz": 6,
+    "barrier": 3
+  },
+  "qpy_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\03_Quantum_State_Evolution.qpy",
+  "text_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\03_Quantum_State_Evolution.txt",
+  "qasm2_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\03_Quantum_State_Evolution.qasm",
+  "qasm3_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\03_Quantum_State_Evolution.qasm3",
+  "qasm2_error": null,
+  "qasm3_error": null
+}

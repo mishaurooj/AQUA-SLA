@@ -1,0 +1,25 @@
+{
+  "index": 1,
+  "stem": "01_State_Preparation_to_Measurement",
+  "description": "State preparation and measurement",
+  "name": "StatePrep",
+  "num_qubits": 6,
+  "num_clbits": 6,
+  "depth": 4,
+  "size": 24,
+  "num_parameters": 0,
+  "parameters": [],
+  "operations": {
+    "h": 6,
+    "ry": 6,
+    "rz": 6,
+    "measure": 6,
+    "barrier": 1
+  },
+  "qpy_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\01_State_Preparation_to_Measurement.qpy",
+  "text_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\01_State_Preparation_to_Measurement.txt",
+  "qasm2_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\01_State_Preparation_to_Measurement.qasm",
+  "qasm3_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\01_State_Preparation_to_Measurement.qasm3",
+  "qasm2_error": null,
+  "qasm3_error": null
+}

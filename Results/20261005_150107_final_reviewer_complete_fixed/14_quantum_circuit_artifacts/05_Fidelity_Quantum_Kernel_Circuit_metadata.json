@@ -1,0 +1,25 @@
+{
+  "index": 5,
+  "stem": "05_Fidelity_Quantum_Kernel_Circuit",
+  "description": "Fidelity quantum-kernel circuit",
+  "name": "FidelityKernel",
+  "num_qubits": 6,
+  "num_clbits": 6,
+  "depth": 51,
+  "size": 114,
+  "num_parameters": 0,
+  "parameters": [],
+  "operations": {
+    "p": 44,
+    "cx": 40,
+    "h": 24,
+    "measure": 6,
+    "barrier": 2
+  },
+  "qpy_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\05_Fidelity_Quantum_Kernel_Circuit.qpy",
+  "text_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\05_Fidelity_Quantum_Kernel_Circuit.txt",
+  "qasm2_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\05_Fidelity_Quantum_Kernel_Circuit.qasm",
+  "qasm3_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\05_Fidelity_Quantum_Kernel_Circuit.qasm3",
+  "qasm2_error": null,
+  "qasm3_error": null
+}

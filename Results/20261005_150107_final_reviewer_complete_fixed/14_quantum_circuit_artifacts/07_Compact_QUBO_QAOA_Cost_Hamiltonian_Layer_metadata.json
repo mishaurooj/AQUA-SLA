@@ -1,0 +1,24 @@
+{
+  "index": 7,
+  "stem": "07_Compact_QUBO_QAOA_Cost_Hamiltonian_Layer",
+  "description": "Compact-QUBO QAOA cost Hamiltonian layer",
+  "name": "Cost",
+  "num_qubits": 4,
+  "num_clbits": 0,
+  "depth": 5,
+  "size": 16,
+  "num_parameters": 1,
+  "parameters": [
+    "γ"
+  ],
+  "operations": {
+    "rz": 12,
+    "rzz": 4
+  },
+  "qpy_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\07_Compact_QUBO_QAOA_Cost_Hamiltonian_Layer.qpy",
+  "text_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\07_Compact_QUBO_QAOA_Cost_Hamiltonian_Layer.txt",
+  "qasm2_file": null,
+  "qasm3_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\07_Compact_QUBO_QAOA_Cost_Hamiltonian_Layer.qasm3",
+  "qasm2_error": null,
+  "qasm3_error": null
+}

@@ -1,0 +1,25 @@
+{
+  "index": 2,
+  "stem": "02_Full_Hybrid_Feature_Map",
+  "description": "Hybrid feature map",
+  "name": "HybridFeatureMap",
+  "num_qubits": 6,
+  "num_clbits": 0,
+  "depth": 26,
+  "size": 60,
+  "num_parameters": 0,
+  "parameters": [],
+  "operations": {
+    "p": 22,
+    "cx": 20,
+    "h": 12,
+    "ry": 6,
+    "barrier": 1
+  },
+  "qpy_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\02_Full_Hybrid_Feature_Map.qpy",
+  "text_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\02_Full_Hybrid_Feature_Map.txt",
+  "qasm2_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\02_Full_Hybrid_Feature_Map.qasm",
+  "qasm3_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\02_Full_Hybrid_Feature_Map.qasm3",
+  "qasm2_error": null,
+  "qasm3_error": null
+}

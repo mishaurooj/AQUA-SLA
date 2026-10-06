@@ -1,0 +1,26 @@
+{
+  "index": 6,
+  "stem": "06_SWAP_Test_Quantum_Kernel",
+  "description": "SWAP-test quantum-kernel circuit",
+  "name": "SWAPTest",
+  "num_qubits": 13,
+  "num_clbits": 1,
+  "depth": 25,
+  "size": 63,
+  "num_parameters": 0,
+  "parameters": [],
+  "operations": {
+    "p": 22,
+    "cx": 20,
+    "h": 14,
+    "cswap": 6,
+    "barrier": 1,
+    "measure": 1
+  },
+  "qpy_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\06_SWAP_Test_Quantum_Kernel.qpy",
+  "text_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\06_SWAP_Test_Quantum_Kernel.txt",
+  "qasm2_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\06_SWAP_Test_Quantum_Kernel.qasm",
+  "qasm3_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\06_SWAP_Test_Quantum_Kernel.qasm3",
+  "qasm2_error": null,
+  "qasm3_error": null
+}

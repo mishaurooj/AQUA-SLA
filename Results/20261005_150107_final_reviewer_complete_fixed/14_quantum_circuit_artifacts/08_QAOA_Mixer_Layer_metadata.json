@@ -1,0 +1,23 @@
+{
+  "index": 8,
+  "stem": "08_QAOA_Mixer_Layer",
+  "description": "QAOA mixer layer",
+  "name": "Mixer",
+  "num_qubits": 4,
+  "num_clbits": 0,
+  "depth": 1,
+  "size": 4,
+  "num_parameters": 1,
+  "parameters": [
+    "β"
+  ],
+  "operations": {
+    "rx": 4
+  },
+  "qpy_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\08_QAOA_Mixer_Layer.qpy",
+  "text_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\08_QAOA_Mixer_Layer.txt",
+  "qasm2_file": null,
+  "qasm3_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\08_QAOA_Mixer_Layer.qasm3",
+  "qasm2_error": null,
+  "qasm3_error": null
+}

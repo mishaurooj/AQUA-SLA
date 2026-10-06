@@ -1,0 +1,33 @@
+{
+  "index": 11,
+  "stem": "11_Full_QAOA_Circuit_p_3",
+  "description": "Full compact-QUBO QAOA circuit, p=3",
+  "name": "QAOA_p3",
+  "num_qubits": 4,
+  "num_clbits": 4,
+  "depth": 20,
+  "size": 68,
+  "num_parameters": 6,
+  "parameters": [
+    "β[0]",
+    "β[1]",
+    "β[2]",
+    "γ[0]",
+    "γ[1]",
+    "γ[2]"
+  ],
+  "operations": {
+    "rz": 36,
+    "rzz": 12,
+    "rx": 12,
+    "h": 4,
+    "barrier": 4,
+    "measure": 4
+  },
+  "qpy_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\11_Full_QAOA_Circuit_p_3.qpy",
+  "text_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\11_Full_QAOA_Circuit_p_3.txt",
+  "qasm2_file": null,
+  "qasm3_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\11_Full_QAOA_Circuit_p_3.qasm3",
+  "qasm2_error": null,
+  "qasm3_error": null
+}

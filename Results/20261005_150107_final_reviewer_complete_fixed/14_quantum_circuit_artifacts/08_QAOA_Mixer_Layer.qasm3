@@ -1,0 +1,8 @@
+OPENQASM 3.0;
+include "stdgates.inc";
+input float[64] β;
+qubit[4] q;
+rx(2*β) q[0];
+rx(2*β) q[1];
+rx(2*β) q[2];
+rx(2*β) q[3];
