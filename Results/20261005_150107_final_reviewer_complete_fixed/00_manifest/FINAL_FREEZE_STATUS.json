@@ -1,0 +1,144 @@
+{
+  "experiment_frozen": true,
+  "created": "2026-10-06T14:59:55.109071",
+  "run": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed",
+  "all_required_artifacts_present": true,
+  "checks": [
+    {
+      "artifact": "target_metadata",
+      "path": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\01_future_target\\future_target_metadata.json",
+      "exists": true
+    },
+    {
+      "artifact": "classical_metrics",
+      "path": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\02_prediction_hcqkl\\classical_baseline_metrics.csv",
+      "exists": true
+    },
+    {
+      "artifact": "kernel_metrics",
+      "path": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\02_prediction_hcqkl\\matched_kernel_test_metrics.csv",
+      "exists": true
+    },
+    {
+      "artifact": "alpha_sweep",
+      "path": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\02_prediction_hcqkl\\hcqkl_alpha_sweep.csv",
+      "exists": true
+    },
+    {
+      "artifact": "scheduling_summary",
+      "path": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\05_capacity_scheduling\\capacity_scheduling_summary.csv",
+      "exists": true
+    },
+    {
+      "artifact": "scheduling_statistics",
+      "path": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\07_statistics\\capacity_scheduling_paired_statistics.csv",
+      "exists": true
+    },
+    {
+      "artifact": "qaoa_reliability",
+      "path": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\06_compact_qaoa\\qaoa_compact_qubo\\qaoa_reliability_summary.json",
+      "exists": true
+    },
+    {
+      "artifact": "iquantum_status",
+      "path": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\08_iquantum_calibrated_v4\\final_iq4\\final_status.json",
+      "exists": true
+    },
+    {
+      "artifact": "quantum_value_status",
+      "path": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\17_quantum_value_audit\\quantum_value_status.json",
+      "exists": true
+    },
+    {
+      "artifact": "circuit_manifest",
+      "path": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\14_quantum_circuit_artifacts\\quantum_circuit_manifest.csv",
+      "exists": true
+    },
+    {
+      "artifact": "result_index",
+      "path": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\00_manifest\\FINAL_RESULTS_INDEX.csv",
+      "exists": true
+    }
+  ],
+  "iquantum_verified_complete": true,
+  "quantum_value_result": {
+    "completed": true,
+    "prediction_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\02_prediction_hcqkl\\matched_kernel_test_predictions_strict_subset.csv",
+    "bootstrap_resamples": 5000,
+    "primary_predeclared_comparison": "Quantum_fidelity_vs_RBF",
+    "primary_metrics": [
+      "roc_auc",
+      "pr_auc"
+    ],
+    "criterion": "Both paired-bootstrap 95% confidence intervals for Quantum_fidelity minus matched RBF must lie strictly above zero.",
+    "matched_quantum_predictive_advantage_supported": true,
+    "selected_hcqkl_alpha": {
+      "alpha_rbf": 0.3,
+      "alpha_quantum": 0.7,
+      "selection_score": 0.3871342742966195
+    },
+    "allowed_claim_if_true": "The quantum fidelity kernel showed a predictive ranking advantage over the matched RBF kernel on the predefined temporal evaluation.",
+    "prohibited_claim": "This result does not establish quantum computational advantage, hardware speedup, or superiority over the strongest classical ML baseline.",
+    "interpretation": "The strict matched-kernel predictive-advantage criterion was met. The paper may claim incremental predictive value relative to the matched RBF kernel, while explicitly stating that this is not computational quantum advantage."
+  },
+  "qaoa_runtime_result": {
+    "completed": true,
+    "source_run": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed",
+    "output": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\16_qaoa_runtime_fairness_audit\\20261006_144125",
+    "saved_final_qaoa_blocks": 20,
+    "repeats_per_block": 3,
+    "warmup_seconds_excluded": 1.492543900036253,
+    "warmup_success": true,
+    "configurations": [
+      {
+        "config": "primary_512s_50iter",
+        "reps": 1,
+        "shots": 512,
+        "maxiter": 50
+      },
+      {
+        "config": "efficient_256s_20iter",
+        "reps": 1,
+        "shots": 256,
+        "maxiter": 20
+      },
+      {
+        "config": "efficient_128s_10iter",
+        "reps": 1,
+        "shots": 128,
+        "maxiter": 10
+      }
+    ],
+    "best_reliable_configuration": {
+      "config": "efficient_128s_10iter",
+      "blocks": 20,
+      "success_rate": 1.0,
+      "raw_feasibility_rate": 1.0,
+      "optimal_match_rate": 1.0,
+      "mean_objective_gap": 0.0,
+      "mean_qaoa_solver_seconds": 0.46835663499950897,
+      "mean_qaoa_end_to_end_seconds": 0.46874422499677165,
+      "mean_milp_solver_seconds": 0.001177525005186908,
+      "mean_milp_end_to_end_seconds": 0.0014025600015884266,
+      "mean_risk_greedy_seconds": 0.0002963850012747571,
+      "mean_least_loaded_seconds": 0.0002564949885709211,
+      "mean_qaoa_vs_milp_solver_ratio": 397.9191305527339,
+      "bootstrap95_qaoa_vs_milp_solver_ratio_low": 386.37788397813506,
+      "bootstrap95_qaoa_vs_milp_solver_ratio_high": 409.24939398843964,
+      "mean_qaoa_vs_milp_end_to_end_ratio": 334.3420475709843,
+      "bootstrap95_qaoa_vs_milp_end_to_end_ratio_low": 324.78259832593955,
+      "bootstrap95_qaoa_vs_milp_end_to_end_ratio_high": 343.0252534056946
+    },
+    "cold_process_reference": {
+      "successful_runs": 20,
+      "mean_cold_process_wall_seconds": 4.877188944997033,
+      "median_cold_process_wall_seconds": 4.901255200005835
+    },
+    "qaoa_end_to_end_time_advantage_over_milp": false,
+    "conclusion": "No QAOA runtime advantage over MILP was observed under the strict reliability and paired-bootstrap criterion. The final paper should report QAOA as reliable solution recovery for the compact benchmark, not as a runtime or quantum-speedup result.",
+    "decision_rule": "A time advantage is accepted only when a configuration has >=95% success, raw feasibility, and exact MILP-objective match, and the paired block-bootstrap 95% CI for QAOA/MILP end-to-end runtime ratio lies completely below 1.",
+    "scientific_boundary": "All QAOA measurements are simulator/software timings. They do not demonstrate physical quantum computational advantage.",
+    "_status_path": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\16_qaoa_runtime_fairness_audit\\20261006_144125\\qaoa_runtime_fairness_status.json"
+  },
+  "next_action": "Freeze experiments and rewrite the manuscript from this result package."
+}

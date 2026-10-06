@@ -1,0 +1,12 @@
+{
+  "project": "AQUA-SLA",
+  "experiment": "path-safe-iQuantum-resume-finalize-quantum-value",
+  "created": "2026-10-06T14:55:19.316930",
+  "python": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "run": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed",
+  "master_script": "E:\\other\\AQUA-SLA\\Code\\35_aqua_sla_final_reviewer_complete.py",
+  "stage_root": "E:\\AQUA_IQ4_TMP",
+  "bootstrap": 5000,
+  "fast": false
+}

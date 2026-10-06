@@ -1,0 +1,148 @@
+{
+  "completed": true,
+  "output": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed",
+  "error": null,
+  "stage_status": {
+    "preflight": "completed",
+    "target_lifecycle_censoring": "completed",
+    "prediction_hcqkl": "completed",
+    "capacity_scheduling": "completed",
+    "compact_qaoa": "completed",
+    "iquantum_calibrated_v4": "completed_path_safe_resume",
+    "quantum_value_audit": "completed",
+    "final_figures": "completed",
+    "quantum_circuit_figures": "completed_finalized",
+    "quantum_circuit_artifacts": "completed_finalized",
+    "final_index": "completed"
+  },
+  "note": "Completed stage outputs are checkpointed and retained.",
+  "fatal_error": null,
+  "resume_finalization_completed": true,
+  "resume_finalization_time": "2026-10-06T14:59:55.109071",
+  "previous_integrated_error_preserved_for_audit": "FileNotFoundError(2, 'No such file or directory')",
+  "iquantum_output": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\08_iquantum_calibrated_v4\\final_iq4",
+  "iquantum_path_safe_resume": {
+    "status_path": "E:\\AQUA_IQ4_TMP\\20261006_145519_iq4\\final_status.json",
+    "status": {
+      "completed": true,
+      "output": "E:\\AQUA_IQ4_TMP\\20261006_145519_iq4",
+      "expected_simulations": 80,
+      "successful_simulations": 80,
+      "failed_simulations": 0,
+      "summary_rows": 80,
+      "uncertainty_rows": 52,
+      "paired_rows": 39,
+      "winner_rows": 260,
+      "notes": [
+        "This is a separate stress-test experiment and does not overwrite reviewer V2 results.",
+        "All matched cells are retained regardless of which policy wins.",
+        "Circuit complexity is generated independently of SLA risk.",
+        "Background queue state is identical across policies within a matched cell.",
+        "The external SLO is calibrated on separate workloads and frozen before evaluation.",
+        "iQuantum is discrete-event simulation, not physical quantum hardware."
+      ]
+    },
+    "verified_complete": true,
+    "elapsed_seconds": 191.03911549999611,
+    "staging_root": "E:\\AQUA_IQ4_TMP",
+    "staging_run": "E:\\AQUA_IQ4_TMP\\20261006_145519_iq4",
+    "final_shallow_evidence": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\08_iquantum_calibrated_v4\\final_iq4",
+    "raw_zip": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\08_iquantum_calibrated_v4\\iquantum_v4_complete_raw.zip"
+  },
+  "quantum_value_audit": {
+    "completed": true,
+    "prediction_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\02_prediction_hcqkl\\matched_kernel_test_predictions_strict_subset.csv",
+    "bootstrap_resamples": 5000,
+    "primary_predeclared_comparison": "Quantum_fidelity_vs_RBF",
+    "primary_metrics": [
+      "roc_auc",
+      "pr_auc"
+    ],
+    "criterion": "Both paired-bootstrap 95% confidence intervals for Quantum_fidelity minus matched RBF must lie strictly above zero.",
+    "matched_quantum_predictive_advantage_supported": true,
+    "selected_hcqkl_alpha": {
+      "alpha_rbf": 0.3,
+      "alpha_quantum": 0.7,
+      "selection_score": 0.3871342742966195
+    },
+    "allowed_claim_if_true": "The quantum fidelity kernel showed a predictive ranking advantage over the matched RBF kernel on the predefined temporal evaluation.",
+    "prohibited_claim": "This result does not establish quantum computational advantage, hardware speedup, or superiority over the strongest classical ML baseline.",
+    "interpretation": "The strict matched-kernel predictive-advantage criterion was met. The paper may claim incremental predictive value relative to the matched RBF kernel, while explicitly stating that this is not computational quantum advantage."
+  },
+  "qaoa_runtime_fairness_audit": {
+    "completed": true,
+    "source_run": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed",
+    "output": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\16_qaoa_runtime_fairness_audit\\20261006_144125",
+    "saved_final_qaoa_blocks": 20,
+    "repeats_per_block": 3,
+    "warmup_seconds_excluded": 1.492543900036253,
+    "warmup_success": true,
+    "configurations": [
+      {
+        "config": "primary_512s_50iter",
+        "reps": 1,
+        "shots": 512,
+        "maxiter": 50
+      },
+      {
+        "config": "efficient_256s_20iter",
+        "reps": 1,
+        "shots": 256,
+        "maxiter": 20
+      },
+      {
+        "config": "efficient_128s_10iter",
+        "reps": 1,
+        "shots": 128,
+        "maxiter": 10
+      }
+    ],
+    "best_reliable_configuration": {
+      "config": "efficient_128s_10iter",
+      "blocks": 20,
+      "success_rate": 1.0,
+      "raw_feasibility_rate": 1.0,
+      "optimal_match_rate": 1.0,
+      "mean_objective_gap": 0.0,
+      "mean_qaoa_solver_seconds": 0.46835663499950897,
+      "mean_qaoa_end_to_end_seconds": 0.46874422499677165,
+      "mean_milp_solver_seconds": 0.001177525005186908,
+      "mean_milp_end_to_end_seconds": 0.0014025600015884266,
+      "mean_risk_greedy_seconds": 0.0002963850012747571,
+      "mean_least_loaded_seconds": 0.0002564949885709211,
+      "mean_qaoa_vs_milp_solver_ratio": 397.9191305527339,
+      "bootstrap95_qaoa_vs_milp_solver_ratio_low": 386.37788397813506,
+      "bootstrap95_qaoa_vs_milp_solver_ratio_high": 409.24939398843964,
+      "mean_qaoa_vs_milp_end_to_end_ratio": 334.3420475709843,
+      "bootstrap95_qaoa_vs_milp_end_to_end_ratio_low": 324.78259832593955,
+      "bootstrap95_qaoa_vs_milp_end_to_end_ratio_high": 343.0252534056946
+    },
+    "cold_process_reference": {
+      "successful_runs": 20,
+      "mean_cold_process_wall_seconds": 4.877188944997033,
+      "median_cold_process_wall_seconds": 4.901255200005835
+    },
+    "qaoa_end_to_end_time_advantage_over_milp": false,
+    "conclusion": "No QAOA runtime advantage over MILP was observed under the strict reliability and paired-bootstrap criterion. The final paper should report QAOA as reliable solution recovery for the compact benchmark, not as a runtime or quantum-speedup result.",
+    "decision_rule": "A time advantage is accepted only when a configuration has >=95% success, raw feasibility, and exact MILP-objective match, and the paired block-bootstrap 95% CI for QAOA/MILP end-to-end runtime ratio lies completely below 1.",
+    "scientific_boundary": "All QAOA measurements are simulator/software timings. They do not demonstrate physical quantum computational advantage.",
+    "_status_path": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\16_qaoa_runtime_fairness_audit\\20261006_144125\\qaoa_runtime_fairness_status.json"
+  },
+  "artifact_finalization": {
+    "general_figures": 9,
+    "circuit_rendered_files": 24,
+    "circuit_objects": 11
+  },
+  "claim_boundaries": [
+    "The future disruption target is project-defined and is not a Google contractual SLA field.",
+    "Validation/test prediction metrics use natural temporal prevalence.",
+    "HCQKL performs kernel-level RBF/quantum blending with alpha selected by temporal validation.",
+    "Any matched-kernel quantum predictive advantage is relative to the matched RBF kernel only.",
+    "The strongest classical ML baseline remains a separate benchmark and must not be hidden.",
+    "External scheduling SLO outcomes are evaluated independently after assignment.",
+    "Raw and repaired QAOA are reported separately.",
+    "The QAOA runtime-fairness audit determines whether any runtime advantage exists; it must not be overridden.",
+    "Qiskit quantum-kernel/QAOA results are simulator based.",
+    "iQuantum is discrete-event simulation, not physical quantum hardware."
+  ]
+}

@@ -1,0 +1,9 @@
+check,passed,detail
+prepared_dataset,True,E:\other\AQUA-SLA\Dataset\processed\aqua_sla_prepared.csv
+xgboost,True,3.2.0
+qiskit,True,2.5.2
+qiskit_algorithms,True,0.4.0
+qiskit_optimization,True,0.7.0
+iquantum_examples_pom,True,E:\other\AQUA-SLA\third_party\iQuantum\modules\iquantum-examples\pom.xml
+maven,True,C:\Users\misha\.conda\envs\aqua-sla\Library\bin\mvn.CMD
+java,True,C:\Users\misha\.conda\envs\aqua-sla\Library\bin\java.EXE

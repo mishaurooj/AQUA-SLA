@@ -1,0 +1,8 @@
+concern,reviewer_issue,final_design,primary_evidence
+1,"Future target, task lifecycle, censoring, leakage-free features",Same-task future disruption within H; explicit FINISH; task-level right censoring; early decision-time features,01_future_target/global_vs_task_lifecycle_audit.csv; 01_future_target/future_target_metadata.json
+2,Circular/non-counterfactual SLA evaluation,Assignment objective excludes realized SLO outcome; SLO evaluated after assignment using queues and realized duration,05_capacity_scheduling/external_slo_definition.json
+3,Unrealistic one-to-one scheduling and repaired-only QAOA,Multi-task CPU/memory capacity scheduling; 4/6/8 tasks; raw and repaired compact-QUBO QAOA separated,05_capacity_scheduling/capacity_scheduling_results.csv; 06_compact_qaoa/qaoa_compact_qubo/
+4,Predetermined iQuantum experiment,Independent circuit complexity; heterogeneous QNodes; 4 policies; workloads 30/60; five seeds; two queue scenarios; separate SLO calibration,08_iquantum_calibrated_v4/
+5,Incremental quantum value,Matched RBF/quantum/HCQKL kernels using same PCA/data; QAOA vs MILP and heuristics,02_prediction_hcqkl/matched_kernel_test_metrics.csv; 06_compact_qaoa/qaoa_compact_qubo/
+6,Calibration and artificial class prevalence,Natural-prevalence temporal validation/test; Brier/ECE reported only on natural evaluation data,01_future_target/temporal_split_summary.csv; 02_prediction_hcqkl/
+7,Weak statistics,20 temporal scheduling blocks; paired bootstrap CIs; Cohen dz; Wilcoxon where enough nonzero pairs; Holm correction; 80 iQuantum matched simulations,07_statistics/; 08_iquantum_calibrated_v4/
