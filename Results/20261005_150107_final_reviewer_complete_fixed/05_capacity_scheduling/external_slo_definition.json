@@ -1,0 +1,16 @@
+{
+  "external_slo_definition": "training-period 90th percentile observed duration by scheduling class, with global 90th percentile fallback",
+  "assignment_objective_contains_realized_slo_outcome": false,
+  "test_label_used_in_assignment": false,
+  "instance_selection_uses_realized_duration": false,
+  "instance_selection": "deterministic diversity-stratified selection inside non-overlapping temporal test blocks using predicted risk, requested CPU/memory, training-derived estimated duration, and scheduling context; repeated task identities are removed",
+  "post_assignment_outcomes": [
+    "slo_miss_rate",
+    "mean_waiting",
+    "mean_completion",
+    "makespan",
+    "total_energy",
+    "total_cost"
+  ],
+  "global_slo_seconds": 300.0
+}
