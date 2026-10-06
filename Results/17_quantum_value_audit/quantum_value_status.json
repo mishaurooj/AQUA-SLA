@@ -1,0 +1,20 @@
+{
+  "completed": true,
+  "prediction_file": "E:\\other\\AQUA-SLA\\results\\aqua_sla_final_reviewer_complete\\20261005_150107_final_reviewer_complete_fixed\\02_prediction_hcqkl\\matched_kernel_test_predictions_strict_subset.csv",
+  "bootstrap_resamples": 5000,
+  "primary_predeclared_comparison": "Quantum_fidelity_vs_RBF",
+  "primary_metrics": [
+    "roc_auc",
+    "pr_auc"
+  ],
+  "criterion": "Both paired-bootstrap 95% confidence intervals for Quantum_fidelity minus matched RBF must lie strictly above zero.",
+  "matched_quantum_predictive_advantage_supported": true,
+  "selected_hcqkl_alpha": {
+    "alpha_rbf": 0.3,
+    "alpha_quantum": 0.7,
+    "selection_score": 0.3871342742966195
+  },
+  "allowed_claim_if_true": "The quantum fidelity kernel showed a predictive ranking advantage over the matched RBF kernel on the predefined temporal evaluation.",
+  "prohibited_claim": "This result does not establish quantum computational advantage, hardware speedup, or superiority over the strongest classical ML baseline.",
+  "interpretation": "The strict matched-kernel predictive-advantage criterion was met. The paper may claim incremental predictive value relative to the matched RBF kernel, while explicitly stating that this is not computational quantum advantage."
+}

@@ -1,0 +1,7 @@
+comparison,metric,difference_definition,observed_difference,bootstrap95_low,bootstrap95_high,ci_strictly_positive,test_rows,positives,prevalence
+Quantum_fidelity_vs_RBF,roc_auc,A_minus_B,0.16385830922532946,0.14588522325469783,0.18176657495942006,True,5000,425,0.085
+Quantum_fidelity_vs_RBF,pr_auc,A_minus_B,0.02353140168523865,0.020123039310738243,0.027127840654938916,True,5000,425,0.085
+Quantum_fidelity_vs_RBF,brier_improvement,Brier_B_minus_Brier_A_positive_means_A_better,-7.773005297630198e-05,-0.00013717666249247752,-1.4554337871691718e-05,False,5000,425,0.085
+HCQKL_vs_RBF,roc_auc,A_minus_B,0.160709225329476,0.1442243718740771,0.17743425865555873,True,5000,425,0.085
+HCQKL_vs_RBF,pr_auc,A_minus_B,0.0235659497639871,0.020299872440889943,0.026945229908436577,True,5000,425,0.085
+HCQKL_vs_RBF,brier_improvement,Brier_B_minus_Brier_A_positive_means_A_better,-0.00019012294165687837,-0.0002528434208887837,-0.000126413961687248,False,5000,425,0.085
