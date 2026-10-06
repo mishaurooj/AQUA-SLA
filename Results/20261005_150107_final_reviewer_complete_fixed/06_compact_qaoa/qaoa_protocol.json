@@ -1,0 +1,15 @@
+{
+  "benchmark": "compact exact 2-task x 2-resource capacity QUBO",
+  "logical_assignment_variables": 4,
+  "assignment_constraint": "P*(x_i0+x_i1-1)^2",
+  "capacity_encoding": "Exact forbidden-subset penalties for the two-task case; original floating-point CPU/memory constraints are retained",
+  "validation": "All 16 logical bitstrings are enumerated per block; QAOA executes only when the QUBO optimum matches MILP",
+  "instance_selection": "deterministic solver-independent diversity-stratified selection within temporal test blocks",
+  "selection_uses_realized_slo_or_qaoa_result": false,
+  "reps": 1,
+  "shots": 512,
+  "maxiter": 50,
+  "timeout_seconds": 120,
+  "blocks": 20,
+  "external_slo_independent_of_assignment_objective": true
+}

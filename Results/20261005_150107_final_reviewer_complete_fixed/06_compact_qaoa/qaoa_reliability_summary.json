@@ -1,0 +1,16 @@
+{
+  "requested_blocks": 20,
+  "attempted_qaoa_blocks": 20,
+  "successful_qaoa_blocks": 20,
+  "timeout_blocks": 0,
+  "qaoa_completion_rate": 1.0,
+  "raw_feasible_blocks": 20,
+  "raw_feasibility_rate_among_successes": 1.0,
+  "repair_required_blocks": 0,
+  "repair_rate_among_successes": 0.0,
+  "all_qubo_encodings_validated": true,
+  "instance_selection": "deterministic temporal diversity-stratified",
+  "mean_cost_matrix_row_distance": 0.3361623970364877,
+  "nontrivial_objective_blocks": 20,
+  "interpretation_boundary": "Raw QAOA is separated from deterministic repair. Timeouts/failures remain failures. No quantum speedup claim is made unless supported by the measured runtime."
+}

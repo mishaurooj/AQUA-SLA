@@ -1,0 +1,8 @@
+{
+  "external_slo": "training-period 90th percentile duration by scheduling class",
+  "assignment_objective_uses_realized_slo": false,
+  "test_label_used_in_assignment": false,
+  "instance_selection": "solver-independent deterministic diversity-stratified selection inside temporal test blocks",
+  "instance_selection_uses_realized_duration": false,
+  "global_slo_seconds": 300.0
+}
