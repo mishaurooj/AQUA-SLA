@@ -1,4 +1,4 @@
-# AQUA-SLA: A Leakage-Aware Hybrid Quantum-Classical Framework for SLA Violation Prediction and Quantum-Cloud Resource Orchestration with Qiskit and iQuantum
+# AQUA-SLA
 
 
 ---
@@ -7,24 +7,6 @@
 ## Google Cluster Workload Traces 2019
 
 AQUA-SLA uses a sample derived from the **Google Cluster Workload Traces 2019** dataset as the empirical workload source for SLA-risk prediction, resource-aware scheduling, hybrid quantum-classical experimentation, and iQuantum-based quantum-cloud simulation.
-
-This file documents the dataset provenance, scope, acquisition procedure, intended use, limitations, licensing, and reproducibility requirements for this repository.
-
----
-
-## 1. Dataset identity
-
-| Field | Description |
-|---|---|
-| Dataset name | Google Cluster Workload Traces 2019 |
-| Trace version | Version 3, commonly called `ClusterData2019` |
-| Original provider | Google Research |
-| Workload manager | Google Borg |
-| Observation period | May 2019 |
-| Number of production clusters/cells | Eight Borg cells |
-| Repository source used by AQUA-SLA | Kaggle sample/mirror |
-| Full-trace access | Google BigQuery |
-| Domain | Cloud computing, cluster scheduling, resource management, workload characterization |
 
 ### Primary sources
 
@@ -46,91 +28,9 @@ This file documents the dataset provenance, scope, acquisition procedure, intend
 - Additional archive link referenced on the Kaggle dataset page:  
   https://drive.google.com/file/d/10r6cnJ5cJ89fPWCgj7j4LtLBqYN9RiI9/view
 
----
 
-## 3. What the trace contains
 
-The trace is intended for research on cloud infrastructure and scheduling. Depending on the selected table or sample, relevant information may include:
-
-- jobs and tasks;
-- submission and scheduling events;
-- task states and transitions;
-- resource requests;
-- CPU, memory, and other resource-usage measurements;
-- machine or cell-level placement information;
-- task priority and scheduling class;
-- collection and alloc-set relationships;
-- job-parent relationships;
-- time-dependent resource behavior.
-
-The exact columns available in this repository depend on the Kaggle sample files downloaded by the researcher. The repository must not claim that every field from the full BigQuery trace is present in the local sample.
-
----
-
-## 4. What the trace does not contain
-
-The trace focuses on infrastructure-level requests, scheduling, and resource usage. According to the official documentation, it does not contain:
-
-- end-user identities;
-- user application data;
-- storage contents;
-- user access patterns to storage systems or services.
-
-The dataset is nevertheless derived from a real production environment and should be handled according to its stated license and research-use conditions.
-
----
-
-## 5. Role of the dataset in AQUA-SLA
-
-The Google trace is the **classical workload dataset** used to construct and evaluate the AQUA-SLA pipeline.
-
-It is not a quantum-computing dataset. Quantum methods are applied later in the workflow to derived scheduling or optimization representations.
-
-The intended data flow is:
-
-```text
-Google 2019 Borg trace sample
-        |
-        v
-Data cleaning and schema normalization
-        |
-        v
-Feature engineering and temporal ordering
-        |
-        v
-Project-defined SLA-violation target
-        |
-        v
-Leakage-aware train/validation/test evaluation
-        |
-        v
-Calibrated SLA-risk probabilities
-        |
-        v
-Risk-aware resource scheduling
-        |
-        +---------------------------+
-        |                           |
-        v                           v
-Qiskit/QAOA experiments      iQuantum simulation
-        |                           |
-        +-------------+-------------+
-                      |
-                      v
-       Consolidated AQUA-SLA evaluation
-```
-
-### Important target-label clarification
-
-The raw Google trace does **not** contain a native field called `sla_violation` defined specifically for AQUA-SLA.
-
-Any SLA-violation label, risk class, deadline breach, resource-pressure indicator, or related prediction target used in this repository is a **project-defined derived target**. 
-
-Researchers reproducing the project should not assume that the label was supplied directly by Google.
-
----
-
-## 6. Relationship to the iQuantum integration
+## Relationship to the iQuantum integration
 
 The Google trace provides the empirical workload characteristics. iQuantum provides a separate discrete-event simulation environment for quantum-cloud resource-management experiments.
 
@@ -230,190 +130,9 @@ python -m pip freeze > requirements-lock.txt
 
 Commit these files so reviewers can recreate the exact environment.
 
----
+## iQuantum installation and integration
 
-## 5. Dataset placement
-
-Place the input file at:
-
-```text
-D:\other\AQUA-SLA\Dataset\borg_traces_data.csv
-```
-
-The repository expects generated datasets under:
-
-```text
-D:\other\AQUA-SLA\Dataset\processed\
-```
-
-Do not commit the raw dataset unless its license permits redistribution. At minimum, publish:
-
-- dataset name and source;
-- acquisition date/version;
-- preprocessing steps;
-- checksum;
-- column description;
-- instructions for obtaining it independently.
-
----
-
-## 6. Run order and expected output from every file
-
-All commands below assume:
-
-```bat
-conda activate aqua-sla
-cd /d D:\other\AQUA-SLA\Code
-```
-
-### Data inspection and preparation
-
-| Script | Purpose | Expected result |
-|---|---|---|
-| `01_inspect_dataset.py` | Inspect raw columns, shapes, types, and sample records. | Console-only diagnostic confirming that `borg_traces_data.csv` can be read. |
-| `02_dataset_profile.py` | Produce a compact raw-data profile. | `results/dataset_profile.csv`. |
-| `03_prepare_dataset.py` | Parse structured fields, engineer resource/distribution features, derive labels, and write the prepared dataset. | `Dataset/processed/aqua_sla_prepared.csv` and `aqua_sla_preparation_metadata.json`. |
-| `04_check_prepared_dataset.py` | Validate the prepared dataset, labels, missingness, and columns. | Console validation report. |
-| `05_inspect_structured_fields.py` | Inspect dictionary/array-like fields before or after parser changes. | Console-only structured-field diagnostic. |
-| `05_create_model_datasets.py` | Create leakage-aware early-prediction and runtime-prediction tables. | `aqua_sla_early_prediction.csv`, `aqua_sla_runtime_prediction.csv`, and `model_dataset_metadata.json`. |
-| `06_event_distribution.py` | Summarize raw event types and violation-event counts. | `results/event_distribution.csv`. |
-| `07_time_analysis.py` | Inspect and sanity-check time columns and units. | Console-only time analysis. |
-
-Run the preparation sequence:
-
-```bat
-python 01_inspect_dataset.py
-python 02_dataset_profile.py
-python 03_prepare_dataset.py
-python 04_check_prepared_dataset.py
-python 05_inspect_structured_fields.py
-python 05_create_model_datasets.py
-python 06_event_distribution.py
-python 07_time_analysis.py
-```
-
-### Baseline and early quantum models
-
-| Script | Purpose | Expected result |
-|---|---|---|
-| `06_train_baselines.py` | Train classical baseline pipelines on the early-prediction dataset. | Models under `models/classical`; metrics, predictions, metadata, and split report under `results/metrics`. |
-| `07_train_quantum_models.py` | Train a pure quantum-kernel SVM, static hybrid kernel, and AQUA-SLA Lite model. | Models under `models/quantum`; kernel samples, alpha search, model comparison, predictions, and metadata under `results/quantum`. |
-| `08_train_aqua_sla_adaptive.py` | Train the adaptive hybrid-kernel architecture, optimize adaptive parameters, and choose an SLA threshold. | Adaptive model, optimization history, threshold search, test predictions, metrics, and metadata. |
-| `09_repeated_aqua_sla_experiments.py` | Repeat the early hybrid experiment across seeds. | `results/quantum/repeated/repeated_quantum_results.csv`, summary, and metadata. |
-
-Commands:
-
-```bat
-python 06_train_baselines.py
-python 07_train_quantum_models.py
-python 08_train_aqua_sla_adaptive.py
-python 09_repeated_aqua_sla_experiments.py
-```
-
-### AQUA-SLA v2-v4 prediction architectures
-
-| Script | Purpose | Expected result |
-|---|---|---|
-| `10_train_aqua_sla_v2.py` | Runtime-telemetry three-kernel multiple-kernel learning. | Feature ranking, optimization history, threshold search, predictions, metrics, model parameters, and metadata under `results/quantum/aqua_sla_v2`. |
-| `11_train_aqua_sla_v3.py` | Scalable classical/latent-quantum hybrid predictor with validation-only blend and threshold selection. | `aqua_sla_v3.joblib`, feature ranking, blend search, threshold search, test comparisons, predictions, and metadata. |
-| `12_aqua_sla_v4_quantum_strengthening.py` | Repeated quantum configuration search across feature maps, latent dimensions, and seeds. | Seed-specific searches/models, `repeated_model_results.csv`, summary, paired tests, and `iquantum_risk_export.csv`. |
-
-Commands:
-
-```bat
-python 10_train_aqua_sla_v2.py
-python 11_train_aqua_sla_v3.py
-python 12_aqua_sla_v4_quantum_strengthening.py
-```
-
-### Quantum-aware scheduling and locked combined core
-
-| Script | Purpose | Expected result |
-|---|---|---|
-| `13_aqua_sla_quantum_scheduler_FAST.py` | Fast QAOA scheduling smoke test with reduced repetitions and optimizer iterations. | Scheduling batches, assignments, summaries, improvements, iQuantum-ready scheduler metrics, and metadata. |
-| `13_aqua_sla_quantum_scheduler.py` | Full repeated scheduler comparison using round-robin, risk-aware greedy, Hungarian, and QAOA methods. | Same output family as the FAST version, with a larger experiment. |
-| `14_aqua_sla_combined_final.py` | Lock the v3 prediction evaluation and connect it to the scheduling experiment. | `results/combined/aqua_sla_final/` containing locked predictions, metrics, assignments, scheduling summaries, improvements, tests, exact-match summary, metadata, and `paper_ready_summary.txt`. |
-
-Recommended order:
-
-```bat
-python 13_aqua_sla_quantum_scheduler_FAST.py
-python 13_aqua_sla_quantum_scheduler.py
-python 14_aqua_sla_combined_final.py
-```
-
-The generic scheduler can consume substantial memory. Treat the FAST script as a functional test and the controlled QAOA experiments in Script 21 as the more reproducible sensitivity study.
-
-### Sample-size, scalability, and classical-branch ablation
-
-| Script | Purpose | Expected result |
-|---|---|---|
-| `16_aqua_sla_sample_size_study.py` | Evaluate training sizes 2k, 5k, and 10k across five seeds. | Run-level metrics, summary with confidence intervals, paired tests, selected features, feature stability, and metadata. |
-| `17_aqua_sla_sample_size_study_100k.py` | Extend sample sizes to 50k and 100k. | Updated versions of the same sample-size tables. |
-| `18_aqua_sla_extended_ablation_save_models.py` | Extend the study to 248k and save every model/prediction artifact. | `saved_models/`, `test_predictions/`, run/summary/test/stability tables, and metadata. |
-| `19_aqua_sla_complete_sample_ablation.py` | Produce the complete sample-size package, best model, diagnostic figures, report, and Excel workbook. | `results/prediction/sample_size_study/` with CSVs, models, best model, figures, Markdown report, metadata, and `aqua_sla_ablation_results.xlsx` when `openpyxl` is installed. |
-
-For the final paper, Script 19 supersedes Scripts 16-18 as the complete sample-size artifact generator, while the earlier scripts document the experimental evolution.
-
-```bat
-python 19_aqua_sla_complete_sample_ablation.py
-```
-
-### Quantum-circuit figures and complete quantum ablation
-
-| Script | Purpose | Expected result |
-|---|---|---|
-| `20_save_quantum_circuit_figures.py` | Draw publication-grade state-preparation, feature-map, variational, kernel, SWAP-test, and QAOA circuits. | JPEG circuit figures under `results/aqua_sla_final/sample_size_study/saved_models/quantum_circuit_figures_final`. |
-| `21_aqua_sla_complete_quantum_ablation.py` | Run prediction-component ablation, controlled 2-task x 2-resource QAOA sensitivity, save circuits/QASM, produce figures/reports, and optionally run IBM/IQM smoke tests. | `results/aqua_sla_final/quantum_ablation_complete/` with `csv/`, `models/`, `circuits/`, `figures_jpeg/`, `hardware/`, `reports/`, and `logs/`. |
-
-Commands:
-
-```bat
-python 20_save_quantum_circuit_figures.py
-set AQUA_RUN_IBM_HARDWARE=0
-set AQUA_RUN_IQM_HARDWARE=0
-python 21_aqua_sla_complete_quantum_ablation.py
-```
-
-Optional hardware execution must be explicitly enabled and configured. Never commit tokens.
-
-### Leakage-controlled honest hybrid evaluation
-
-| Script | Purpose | Expected result |
-|---|---|---|
-| `26_aqua_sla_honest_hybrid_quantum_ablation.py` | Run nested repeated hybrid model selection, out-of-fold evaluation, transparent component ablation, and optional companion QAOA extension. | `results/aqua_sla_final/honest_hybrid_quantum_ablation/` with fold metrics, OOF predictions, model-selection records, summaries, models, figures, report, logs, metadata, and optional Excel workbook. |
-
-Run with the QAOA companion:
-
-```bat
-set AQUA_SKIP_QAOA=0
-python 26_aqua_sla_honest_hybrid_quantum_ablation.py
-```
-
-Run only the honest fusion study:
-
-```bat
-set AQUA_SKIP_QAOA=1
-python 26_aqua_sla_honest_hybrid_quantum_ablation.py
-```
-
-### CLOUDS Lab iQuantum integration
-
-| Script | Purpose | Expected result |
-|---|---|---|
-| `27_aqua_sla_iquantum_platform_integration.py` | Convert locked AQUA-SLA scheduling assignments into iQuantum QTasks, generate a Java bridge, execute iQuantum through Maven, import task-level simulation results, and create a platform ablation. | `results/aqua_sla_final/iquantum_platform_integration/` with workload/results CSVs, merged results, platform summary, ablation, logs, status JSON, and Markdown report. |
-
-### Final experiment packaging
-
-| Script | Purpose | Expected result |
-|---|---|---|
-| `28_aqua_sla_master_experiment_runner.py` | Run selected final scripts, collect separate result layers, preserve circuits, snapshot sources, save logs/manifests, and create a combined inventory/workbook. | A timestamped directory under `results/aqua_sla_experiment_runs/`. |
-
----
-
-## 10. iQuantum installation and integration
-
-### 10.1 What iQuantum contributes
+### What iQuantum contributes
 
 AQUA-SLA produces risk-aware scheduling assignments in Python. Script 27 translates those assignments into a workload for the CLOUDS Lab iQuantum platform. The integration is:
 
@@ -441,7 +160,7 @@ The generated bridge performs the following operations:
 9. merges those outputs with the original AQUA-SLA workload;
 10. writes a platform-level summary and ablation table.
 
-### 10.2 Install Java and Maven
+### Install Java and Maven
 
 Verify:
 
@@ -470,7 +189,7 @@ set PATH=%JAVA_HOME%\bin;%MAVEN_HOME%\bin;%PATH%
 
 Use the actual installed JDK directory on your machine.
 
-### 10.3 Clone iQuantum
+### Clone iQuantum
 
 ```bat
 cd /d D:\other\AQUA-SLA
@@ -501,7 +220,7 @@ git rev-parse HEAD
 
 Save this commit hash in the paper and final experiment metadata.
 
-### 10.4 Prepare the required input
+### prepare the required input
 
 Script 27 searches for:
 
@@ -511,7 +230,7 @@ locked_scheduling_assignments.csv
 
 Generate it by running Script 21, or ensure a compatible locked assignment file is present under the results tree.
 
-### 10.5 Run the integration
+###  Run the integration
 
 ```bat
 conda activate aqua-sla
@@ -521,7 +240,7 @@ cd /d D:\other\AQUA-SLA\Code
 python 27_aqua_sla_iquantum_platform_integration.py
 ```
 
-### 10.6 Verify successful integration
+### Verify successful integration
 
 Open:
 
@@ -564,48 +283,3 @@ logs\iquantum_combined.log
 ```
 
 ---
-
-## 11. Running the final release pipeline
-
-First apply the Script 28 consistency corrections documented above.
-
-### Full final run
-
-For a strict final experiment, omit `--continue-on-error` so any failed component stops the release:
-
-```bat
-conda activate aqua-sla
-set IQUANTUM_HOME=D:\other\AQUA-SLA\third_party\iQuantum
-set AQUA_RUN_IQUANTUM=1
-cd /d D:\other\AQUA-SLA\Code
-python 28_aqua_sla_master_experiment_runner.py --mode full --run-name release_v1_0
-```
-
-### Debug/collection run
-
-Use this during development so remaining outputs are still packaged after one component fails:
-
-```bat
-python 28_aqua_sla_master_experiment_runner.py --mode full --run-name debug_run --continue-on-error
-```
-
-### Package existing results without retraining
-
-```bat
-python 28_aqua_sla_master_experiment_runner.py --mode collect-only --run-name existing_results
-```
-
-### Generate/package circuits only
-
-```bat
-python 28_aqua_sla_master_experiment_runner.py --mode circuits-only --run-name circuit_archive --continue-on-error
-```
-
-### Run/package iQuantum only
-
-```bat
-python 28_aqua_sla_master_experiment_runner.py --mode iquantum-only --run-name iquantum_validation
-```
-
----
-
