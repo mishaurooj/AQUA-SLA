@@ -1,0 +1,8 @@
+{
+  "source_rows": 405894,
+  "eligible_rows": 139293,
+  "positives": 3544,
+  "prevalence": 0.02544277171142843,
+  "task_lifecycle_censored_rows": 130432,
+  "reference": "Code/35_aqua_sla_final_reviewer_complete.py; prepare_target_frame -> lifecycle_annotations -> build_lifecycle_target"
+}

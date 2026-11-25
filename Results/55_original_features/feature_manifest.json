@@ -1,0 +1,27 @@
+{
+  "original_features": [
+    "scheduling_class",
+    "collection_type",
+    "priority",
+    "vertical_scaling",
+    "scheduler",
+    "requested_cpu",
+    "requested_memory",
+    "requested_cpu_missing",
+    "requested_memory_missing"
+  ],
+  "all_features": [
+    "scheduling_class",
+    "collection_type",
+    "priority",
+    "vertical_scaling",
+    "scheduler",
+    "requested_cpu",
+    "requested_memory",
+    "requested_cpu_missing",
+    "requested_memory_missing"
+  ],
+  "history_mode": "none",
+  "target": "future_sla_event",
+  "horizon_seconds": 300
+}

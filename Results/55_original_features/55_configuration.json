@@ -1,0 +1,44 @@
+{
+  "script": "55_final_optimized",
+  "arguments": {
+    "data": "E:\\other\\AQUA-SLA\\Dataset\\processed\\aqua_sla_prepared.csv",
+    "external_test": null,
+    "output": "../results/55_original_features",
+    "train_n": 100000,
+    "val_n": 10000,
+    "test_n": 0,
+    "seeds": [
+      5101,
+      5201,
+      5301,
+      5401,
+      5501
+    ],
+    "split_seed": 5101,
+    "landmarks": [
+      24,
+      48,
+      96
+    ],
+    "strategies": [
+      "representative"
+    ],
+    "align_evals": 75,
+    "workers": 4,
+    "bootstrap": 1000,
+    "history": "none",
+    "confirm_observed_rows": false,
+    "confirm_event_time": false,
+    "smoke": false
+  },
+  "script_sha256": "40ebb637079cbd3c683b1c297e30f2522ef803313417162bbcb51c384c96c67b",
+  "quantum_source_sha256": "27ae682ab52d3c2186ccdeac06efe600e8e3bf9bfff67a9a9d06408c72b45d97",
+  "dataset_sha256": "4f442ebad824cebc60348f83c4a77c0b962383b3e3716a59d53d7cb982a0cfb9",
+  "external_sha256": null,
+  "python": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "target_roc_auc": 0.8,
+  "target_guaranteed": false,
+  "external_independence_verified": false,
+  "training_metrics_in_sample": true
+}

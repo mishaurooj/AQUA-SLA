@@ -1,0 +1,92 @@
+{
+  "selected_model": "Fusion_HCQKL",
+  "classical_baseline": "RF_context",
+  "fusions": {
+    "HCQKL": {
+      "family": "HCQKL",
+      "baseline": "RF_context",
+      "calibration": "probability",
+      "weight": 0.2,
+      "roc_auc": 0.7037382593931527,
+      "pr_auc": 0.15771358112542103,
+      "block_auc_mean": 0.6894973154865007,
+      "block_auc_std": 0.07407507007485012,
+      "objective": 0.7191853847396812
+    },
+    "PureQuantum": {
+      "family": "PureQuantum",
+      "baseline": "RF_context",
+      "calibration": "probability",
+      "weight": 0.15000000000000002,
+      "roc_auc": 0.7052397120071907,
+      "pr_auc": 0.1295343393762871,
+      "block_auc_mean": 0.6894583685279669,
+      "block_auc_std": 0.0771920126327624,
+      "objective": 0.7140443077698054
+    },
+    "ClassicalKernel": {
+      "family": "ClassicalKernel",
+      "baseline": "RF_context",
+      "calibration": "rank",
+      "weight": 0.65,
+      "roc_auc": 0.7050774505089086,
+      "pr_auc": 0.1759898370725918,
+      "block_auc_mean": 0.6825553169727505,
+      "block_auc_std": 0.09856850949259248,
+      "objective": 0.7176073947618827
+    }
+  },
+  "thresholds": {
+    "ClassicalKernel": {
+      "f1": 0.5381772212336894,
+      "balanced_accuracy": 0.015023737894528811
+    },
+    "ExtraTrees_context": {
+      "f1": 0.03955551116065159,
+      "balanced_accuracy": 0.02363555744342314
+    },
+    "HCQKL": {
+      "f1": 0.4325286290221051,
+      "balanced_accuracy": 0.014443056771440938
+    },
+    "HGB_context": {
+      "f1": 0.5785575188289757,
+      "balanced_accuracy": 0.06626259908243366
+    },
+    "HGB_original": {
+      "f1": 0.5785575188289757,
+      "balanced_accuracy": 0.06626259908243366
+    },
+    "PureQuantum": {
+      "f1": 0.44099438784153433,
+      "balanced_accuracy": 0.44099438784153433
+    },
+    "RF_context": {
+      "f1": 0.4098984970215783,
+      "balanced_accuracy": 0.3490469834143958
+    },
+    "XGBoost_context": {
+      "f1": 0.25914704129099847,
+      "balanced_accuracy": 0.1868380405008793
+    },
+    "Fusion_HCQKL": {
+      "f1": 0.3986487634409492,
+      "balanced_accuracy": 0.3254397183353952
+    },
+    "Fusion_PureQuantum": {
+      "f1": 0.40031967187877115,
+      "balanced_accuracy": 0.3265312971617528
+    },
+    "Fusion_ClassicalKernel": {
+      "f1": 0.984485,
+      "balanced_accuracy": 0.97381
+    }
+  },
+  "seeds": [
+    5101,
+    5201,
+    5301,
+    5401,
+    5501
+  ]
+}
